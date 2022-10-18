@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:24:13 by tkulket           #+#    #+#             */
-/*   Updated: 2022/10/10 14:08:33 by tkulket          ###   ########.fr       */
+/*   Updated: 2022/10/18 23:37:52 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,14 +99,29 @@ int		main(int argc, char** argv)
 }
 */
 
+int	main(void)
+{
+//	unsigned int	hex;
+	unsigned int	dec;
+	
+	dec = 35631;
+//	hex = ft_dectohex(dec);
+	ft_printf("%x\n",dec);
+	printf("%x\n",dec);
+	
+	return (0);
+}
+
+/*
 int main(void)
 {
-	char	*str = NULL;
+	unsigned int	str = 160;
 	int		len;
-	len = ft_printf("ft_pntf	=%s where\n",str);
+	len = ft_printf("ft_pntf	=%x where\n",str);
 	printf("len	=%d\n",len);
-	len = printf("default	=%s where\n", str);
+	len = printf("default	=%x where\n", str);
 	printf("len	=%d\n",len);
 	printf("**********************************\n");
 	return (0);
 }
+*/

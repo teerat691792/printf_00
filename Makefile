@@ -6,7 +6,7 @@
 #    By: tkulket <marvin@42.fr>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/27 20:03:31 by tkulket           #+#    #+#              #
-#    Updated: 2022/10/07 23:39:29 by tkulket          ###   ########.fr        #
+#    Updated: 2022/10/18 23:39:21 by tkulket          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,10 @@ SRC		=		ft_printf.c\
 				libft/ft_strnstr.c\
 				libft/ft_isprint.c\
 				libft/ft_putchar_fd.c\
+				libft/ft_itoa.c\
+				libft/ft_utoa.c\
+				libft/ft_htoa.c\
+				libft/ft_dectohex.c\
 				libft/ft_putstr_fd.c
 
 OBJS := $(SRC:.c=.o)
@@ -44,7 +48,9 @@ g:
 		gdb a.out
 l:
 		ar -t $(NAME)
+o:
+		./a.out | cat -e
 
 re: fclean all
 
-.PHONY : all clean fclean re c g
+.PHONY : all clean fclean re c g l o

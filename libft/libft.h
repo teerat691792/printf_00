@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/28 19:44:04 by tkulket           #+#    #+#             */
-/*   Updated: 2022/09/27 14:35:15 by tkulket          ###   ########.fr       */
+/*   Updated: 2022/10/18 14:25:13 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,5 +73,8 @@ char	*ft_strtrim(char const *s1, char const *set);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 int		ft_tolower(int c);
 int		ft_toupper(int c);
+char	*ft_utoa(unsigned int n);
+char	*ft_htoa(unsigned int n);
+unsigned int	ft_dectohex(unsigned int dec);
 
 #endif

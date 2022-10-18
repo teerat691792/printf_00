@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:09:27 by tkulket           #+#    #+#             */
-/*   Updated: 2022/10/10 14:13:31 by tkulket          ###   ########.fr       */
+/*   Updated: 2022/10/19 00:11:18 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,9 +31,11 @@ int	ft_printf(const char *str, ...)
 {
 	int		len;
 	size_t	i;
+	char	*unbr;
 	va_list	args;
 	char 	*tmp;
 	char 	*dst;
+	char 	*nbr;
 	int	c;
 
 	tmp = (char *)str;
@@ -47,11 +49,15 @@ int	ft_printf(const char *str, ...)
 		if (tmp[i] == '%')
 		{
 			i++;
-			if (tmp[i] == 'c')
+			if (tmp[i] == '%')
+			{
+				ft_putchar_fd('%', 1);
+				len++;
+			} 
+			else if (tmp[i] == 'c')
 			{
 				c = va_arg(args, int);
 				ft_putchar_fd(c, 1);
-//				printf("c =%c\n",c);
 				len++;
 			}
 			else if (tmp[i] == 's')
@@ -62,12 +68,31 @@ int	ft_printf(const char *str, ...)
 					ft_putstr_fd("(null)", 1);
 					len += ft_strlen("(null)");
 				}
-				ft_putstr_fd(dst , 1);
+				ft_putstr_fd(dst, 1);
 				len += ft_strlen(dst);
 			}
-//			len = ft_checkflag (args);
-//			i = va_arg(args, int);
-//			len--;
+			else if (tmp[i] == 'd' || tmp[i] == 'i')
+			{
+				nbr = ft_itoa(va_arg(args, int));
+				ft_putstr_fd(nbr, 1);
+				len += ft_strlen(nbr);
+				free(nbr);
+			}
+			else if (tmp[i] == 'u')
+			{
+				unbr = ft_utoa(va_arg(args, unsigned int));
+				ft_putstr_fd(unbr, 1);
+				len += ft_strlen(unbr);
+				free(unbr);
+			}
+			else if (tmp[i] == 'x')
+			{
+				unbr = ft_htoa(va_arg(args, unsigned int));
+//				printf("hex	=%x\n",unbr);
+				ft_putstr_fd(unbr, 1);
+				len += ft_strlen(unbr);
+				free(unbr);
+			}
 		}
 		else
 		{
