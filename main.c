@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:24:13 by tkulket           #+#    #+#             */
-/*   Updated: 2022/10/18 23:37:52 by tkulket          ###   ########.fr       */
+/*   Updated: 2023/02/02 17:15:02 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,13 +101,12 @@ int		main(int argc, char** argv)
 
 int	main(void)
 {
-//	unsigned int	hex;
 	unsigned int	dec;
+	char	c;
 	
-	dec = 35631;
-//	hex = ft_dectohex(dec);
-	ft_printf("%x\n",dec);
-	printf("%x\n",dec);
+	dec =  (unsigned int)3735929054;
+	ft_printf("ft_printf	= %p\n",&c);
+	printf("default		= %p\n",&c);
 	
 	return (0);
 }

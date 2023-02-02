@@ -6,11 +6,11 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:09:27 by tkulket           #+#    #+#             */
-/*   Updated: 2022/10/19 00:11:18 by tkulket          ###   ########.fr       */
+/*   Updated: 2023/02/02 19:19:18 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 /*
 int	ft_flag(va_list tmp, ...)
@@ -44,7 +44,8 @@ int	ft_printf(const char *str, ...)
 	va_start(args, str);
 	i = 0;
 	len = 0;
-	while (i < ft_strlen(tmp))
+	unsigned int j = ft_strlen(tmp);
+	while (i < j)
 	{
 		if (tmp[i] == '%')
 		{
@@ -85,10 +86,25 @@ int	ft_printf(const char *str, ...)
 				len += ft_strlen(unbr);
 				free(unbr);
 			}
+			else if (tmp[i] == 'p')
+			{
+				unbr = ft_address(va_arg(args, unsigned long));
+				write (1, "0x", 2);
+				ft_putstr_fd(unbr, 1);
+				len = len + ft_strlen(unbr) + 2;
+				free(unbr);
+			}
 			else if (tmp[i] == 'x')
 			{
 				unbr = ft_htoa(va_arg(args, unsigned int));
-//				printf("hex	=%x\n",unbr);
+				ft_putstr_fd(unbr, 1);
+				len += ft_strlen(unbr);
+				free(unbr);
+			}
+			else if (tmp[i] == 'X')
+			{
+				unbr = ft_htoa(va_arg(args, unsigned int));
+				unbr = ft_toupper_h(unbr);
 				ft_putstr_fd(unbr, 1);
 				len += ft_strlen(unbr);
 				free(unbr);

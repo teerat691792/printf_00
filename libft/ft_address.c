@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_htoa.c                                          :+:      :+:    :+:   */
+/*   ft_address.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/17 22:24:33 by tkulket           #+#    #+#             */
-/*   Updated: 2023/02/02 18:37:17 by tkulket          ###   ########.fr       */
+/*   Created: 2023/02/02 18:37:53 by tkulket           #+#    #+#             */
+/*   Updated: 2023/02/02 18:46:39 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *reverse_digit(char *str)
+char *reverse_digit_p(char *str)
 {
 	int		len;
 	int		i;
@@ -30,7 +30,7 @@ char *reverse_digit(char *str)
 	return str;
 }
 
-char hex_digit(int v)
+char hex_digit_p(int v)
 {
     if (v < 10)
         return '0' + v;
@@ -38,7 +38,7 @@ char hex_digit(int v)
         return 'a' + (v - 10);
 }
 
-char*	dec_to_hex_recursive(unsigned int dec, int index, char* hex)
+char*	dec_to_hex_recursive_p(unsigned long dec, int index, char* hex)
 {
     int remainder;
     if (dec == 0) {
@@ -46,12 +46,12 @@ char*	dec_to_hex_recursive(unsigned int dec, int index, char* hex)
         return hex;
     }
 	remainder = dec % 16;
-    hex[index] = hex_digit(remainder);
-    dec_to_hex_recursive(dec / 16, index + 1, hex);
+    hex[index] = hex_digit_p(remainder);
+    dec_to_hex_recursive_p(dec / 16, index + 1, hex);
     return hex;
 }
 
-size_t	ft_countdigit_h(unsigned int n)
+size_t	ft_countdigit_p(unsigned long n)
 {
 	size_t	d;
 
@@ -66,18 +66,18 @@ size_t	ft_countdigit_h(unsigned int n)
 	return (d);
 }
 
-char	*ft_htoa(unsigned int n)
+char	*ft_address(unsigned long n)
 {
 	char	*tmp;
 	size_t	d;
-	d = ft_countdigit_h(n);
+	d = ft_countdigit_p(n);
 	tmp = malloc(sizeof(char) * (d + 1));
 	if (!tmp)
 		return (NULL);
 
-	dec_to_hex_recursive(n, 0, tmp);
+	dec_to_hex_recursive_p(n, 0, tmp);
 	if (d > 1)
-		reverse_digit(tmp);
+		reverse_digit_p(tmp);
 	if (n == 0)
 		tmp[0] = '0';
 	tmp[d] = '\0';

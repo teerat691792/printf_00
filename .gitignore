@@ -53,6 +53,7 @@ Mkfile.old
 dkms.conf
 
 tester/*
+./printfTester/
 
 venv/*
 .DS_Store
