@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/27 21:24:13 by tkulket           #+#    #+#             */
-/*   Updated: 2023/02/02 17:15:02 by tkulket          ###   ########.fr       */
+/*   Updated: 2023/02/03 23:46:49 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,29 +98,39 @@ int		main(int argc, char** argv)
 	return (0);
 }
 */
-
 int	main(void)
 {
-	unsigned int	dec;
 	char	c;
-	
-	dec =  (unsigned int)3735929054;
-	ft_printf("ft_printf	= %p\n",&c);
-	printf("default		= %p\n",&c);
-	
+
+	c = 'a';
+	printf("default	= %%\n");
+	ft_printf("ft_printf	= %%\n");
 	return (0);
 }
 
 /*
-int main(void)
+int	main(void)
 {
-	unsigned int	str = 160;
-	int		len;
-	len = ft_printf("ft_pntf	=%x where\n",str);
-	printf("len	=%d\n",len);
-	len = printf("default	=%x where\n", str);
-	printf("len	=%d\n",len);
-	printf("**********************************\n");
+	unsigned int	dec;
+	char	c;
+	int 	i;
+	long double lu;
+	char	*str;
+	
+	dec =  (unsigned int)3735929054;
+	c = 'a';
+
+	ft_printf("ft_printf	c= %c\n",c);
+	printf("default		c= %c\n",c);
+	printf("***************\n");
+	ft_printf("ft_printf	c= %p\n",&c);
+	printf("default		c= %p\n",&c);
+	ft_printf("ft_printf	i= %p\n",&i);
+	printf("default		i= %p\n",&i);
+	ft_printf("ft_printf	lu= %p\n",&lu);
+	printf("default		lu= %p\n",&lu);
+	ft_printf("ft_printf	str= %p\n",&str);
+	printf("default		str= %p\n",&str);
 	return (0);
 }
 */

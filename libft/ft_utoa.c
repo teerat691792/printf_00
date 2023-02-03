@@ -6,7 +6,7 @@
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/17 21:15:54 by tkulket           #+#    #+#             */
-/*   Updated: 2023/02/02 15:27:32 by tkulket          ###   ########.fr       */
+/*   Updated: 2023/02/04 02:17:18 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,6 @@
 
 char	*ft_insertchar_u(char *str, unsigned int n, size_t d)
 {
-/*
-	if (n == INT_MIN)
-	{
-		str[0] = '-';
-		str[1] = '2';
-		ft_insertchar(str, 147483648, d);
-	}
-	else if (n < 0)
-	{
-		str[0] = '-';
-		ft_insertchar(str, n * -1, d);
-	}
-*/
 	if (n == 0)
 		str[0] = '0';
 	else if (n > 9)
@@ -44,15 +31,6 @@ size_t	ft_countdigit_u(unsigned int n)
 	size_t	d;
 
 	d = 0;
-/*	
-	if (n == INT_MIN)
-		return (11);
-	if (n < 0)
-	{
-		n *= -1;
-		d++;
-	}
-*/
 	while (n > 0)
 	{
 		n /= 10;

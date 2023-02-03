@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tkulket <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/08/31 07:30:29 by tkulket           #+#    #+#             */
-/*   Updated: 2022/10/10 14:04:10 by tkulket          ###   ########.fr       */
+/*   Created: 2023/02/03 20:55:49 by tkulket           #+#    #+#             */
+/*   Updated: 2023/02/03 20:56:54 by tkulket          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char *s, int fd)
-{
-	size_t	n;
-
-	if (!s)
-		return ;
-	n = ft_strlen(s);
-	write (fd, s, n);
+int	ft_putchar(char c)
+{	
+	write(1, &c, 1);
+	return (1);
 }
